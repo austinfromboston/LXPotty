@@ -1,5 +1,5 @@
 {
-  name: "Custom",
-  mediaDir: "Custom",
-  author: "Mark Slee"
+  name: "LXPotty",
+  mediaDir: "LXPotty",
+  author: "Michael Stevenson and Austin Putman"
 }
