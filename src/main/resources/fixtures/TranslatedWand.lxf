@@ -1,0 +1,65 @@
+{
+  "label": "Translated Wand",
+  "tags": [
+    "hourglass",
+    "translatedwand"
+  ],
+
+  "parameters": {
+    "wandId": {
+      "type": "string",
+      "default": "",
+      "label": "Unique ID"
+    },
+    "mountRadius": {
+      "type": "float",
+      "label": "Mount Radius",
+      "description": "The inner radius of the hourglass at the mount in meters",
+      "default": 0.15,
+      "min": 0
+    },
+    "arcAtMount": {
+      "type": "float",
+      "label": "Arc at the mount point around the vertical positive x axis is zero",
+      "description": "The Rotation of the wands around the mount point in degrees aboutn the vertical",
+      "default": 35,
+      "min": 0
+    },
+    "declinationDeg": {
+      "type": "float",
+      "label": "Declination",
+      "description": "The declination of the wands in degrees fom vertical",
+      "default": 35,
+      "min": 0
+    },
+    "spacing": {
+      "type": "float",
+      "label": "Spacing",
+      "description": "the distance between points in centimeters",
+      "default": 2,
+      "min": 0
+    },
+    "numPoints": {
+      "type": "int",
+      "label": "Points",
+      "description": "How many points per strip on the hourglass",
+      "default": 120,
+      "min": 1,
+      "max": 1000
+    }
+  },
+  "transforms": [
+    {"rotateY": "$arcAtMount"},
+    {"rotateX": "$declinationDeg"},
+    {"y":  "-$numPoints * $spacing / 2.0"},
+    {"x": "$mountRadius"},
+    {"roll": 90}
+  ],
+  "components": [
+    {
+      "type": "strip",
+      "numPoints": "$numPoints",
+      "spacing": "$spacing"
+    }
+  ]
+}
